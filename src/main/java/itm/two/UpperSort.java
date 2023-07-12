@@ -9,13 +9,13 @@ public class UpperSort {
         Collector<String, StringJoiner, String> namesCollector =
                 Collector.of(
                         () -> new StringJoiner(" "),
-                        (name1, name2) -> name1.add(name2),
-                        (name1, name2) -> name1.merge(name2),
+                        StringJoiner::add,
+                        StringJoiner::merge,
                         StringJoiner::toString);
 
         String names = list
                 .parallelStream()
-                .map(name -> name.substring(2, name.length()).toUpperCase())
+                .map(name -> name.substring(2).toUpperCase())
                 .sorted()
                 .collect(namesCollector);
 

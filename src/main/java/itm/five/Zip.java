@@ -9,17 +9,18 @@ public class Zip {
 
         Iterator<T> i1 = first.iterator();
         Iterator<T> i2 = second.iterator();
-        Iterable<List<T>> i = ()->new Iterator<List<T>>() {
+        Iterable<List<T>> i = ()-> new Iterator<>() {
             @Override
             public boolean hasNext() {
                 return i1.hasNext() && i2.hasNext();
             }
+
             @Override
             public List<T> next() {
                 return Arrays.asList(i1.next(), i2.next());
             }
         };
 
-        return StreamSupport.stream(i.spliterator(), false).flatMap(couple -> couple.stream());
+        return StreamSupport.stream(i.spliterator(), false).flatMap(Collection::stream);
     }
 }
