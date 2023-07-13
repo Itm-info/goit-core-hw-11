@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> names = Arrays.asList("1. John", "2. Bill", "3. Victor", "4. Ivan", "5. Vasyl");
+        List<String> names = Arrays.asList("John", "Bill", "Victor", "Ivan", "Vasyl");
 
         String[] nums = {"1, 2, 0", "4, 5"};
 
@@ -24,7 +24,7 @@ public class Main {
         System.out.println(" \n2: \n"+UpperSort.upperSort(names));
 
         // 3
-        FlatIt.flatIt(nums);
+        System.out.println(" \n3: \n"+FlatIt.flatIt(nums));
 
         // 4
         System.out.println(" \n4:");

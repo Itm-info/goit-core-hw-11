@@ -1,5 +1,6 @@
 package itm.two;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.StringJoiner;
 import java.util.stream.Collector;
@@ -15,8 +16,8 @@ public class UpperSort {
 
         String names = list
                 .parallelStream()
-                .map(name -> name.substring(2).toUpperCase())
-                .sorted()
+                .map(String::toUpperCase)
+                .sorted(Comparator.reverseOrder())
                 .collect(namesCollector);
 
         return names.strip();
